@@ -2,6 +2,9 @@ const info = document.getElementById('info');
 const form = document.getElementById('form');
 const clear = document.getElementById('clear');
 
+// Simple How-to for user through #info textarea
+showHowTo();
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   
@@ -16,6 +19,8 @@ form.addEventListener('submit', (event) => {
         1. Key must contain exactly 26 letters
         2. Key must only contain alphabetic character (a-Z)
       `;
+    
+    return;
   }
 
   // convert key to lower case
@@ -28,9 +33,9 @@ form.addEventListener('submit', (event) => {
 
 // clear all input fields
 clear.addEventListener('click', () => {
-  document.getElementById('key').value = "";
-  document.getElementById('text').value = "";
-  info.value = "";
+  document.getElementById('key').value = "haha";
+  document.getElementById('text').value = "haha";
+  showHowTo();
 })
 
 const isValidKey = (key) => {
@@ -70,4 +75,9 @@ const subsCipher = (s, key) => {
   }
 
   return newString;
+}
+
+function showHowTo() {
+  console.log("activated");
+  info.value = "Typed in a 26-character key, then insert the text you want to encrypt followed by the submit button!"
 }
