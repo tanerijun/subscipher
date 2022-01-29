@@ -15,10 +15,9 @@ form.addEventListener('submit', (event) => {
   // validate key
   if (!isValidKey(key)) {
     info.value = 
-      ` Key is not valid.
-        1. Key must contain exactly 26 letters
-        2. Key must only contain alphabetic character (a-Z)
-      `;
+    `Key is not valid.
+1. Key must contain exactly 26 letters
+2. Key must only contain alphabetic character (a-Z)`;
     
     return;
   }
