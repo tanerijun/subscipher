@@ -33,8 +33,8 @@ form.addEventListener('submit', (event) => {
 
 // clear all input fields
 clear.addEventListener('click', () => {
-  document.getElementById('key').value = "haha";
-  document.getElementById('text').value = "haha";
+  document.getElementById('key').value = "";
+  document.getElementById('text').value = "";
   showHowTo();
 })
 
