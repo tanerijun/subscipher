@@ -1,5 +1,6 @@
 const info = document.getElementById('info');
 const form = document.getElementById('form');
+const clear = document.getElementById('clear');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -22,10 +23,14 @@ form.addEventListener('submit', (event) => {
 
   // encrypt text
   const encrypted_text = subsCipher(plain_text, key);
-  console.log(encrypted_text);
+  info.value = encrypted_text;
+})
 
-  // clear input fields
-
+// clear all input fields
+clear.addEventListener('click', () => {
+  document.getElementById('key').value = "";
+  document.getElementById('text').value = "";
+  info.value = "";
 })
 
 const isValidKey = (key) => {
