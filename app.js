@@ -28,8 +28,8 @@ form.addEventListener('submit', (event) => {
 
   if (mode.textContent === 'Encrypt') {
     // encrypt text
-    const encrypted_text = subsCipher(plain_text, key);
-    info.value = encrypted_text;
+    const encryptedText = subsCipher(plain_text, key);
+    info.value = encryptedText;
   } else if (mode.textContent === 'Decrypt') {
     // decrypt text
   } else {
