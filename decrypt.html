@@ -1,1 +1,45 @@
-Work in Progress
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SubsDecode</title>
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <h2>SubsDecode</h2>
+    </div>
+    <div class="mode-container">
+      <ul class="mode-links">
+        <li><a href="index.html">Encrypt</a></li>
+        <li><a href="decrypt.html">Decrypt</a></li>
+      </ul>
+    </div>
+    <div class="help">
+      <a href="https://github.com/TaneriX07/subscipher" target="_blank">HELP</a>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <h2>Decrypt</h2>
+      <form id="form">
+        <label for="key">Key:</label><br />
+        <input type="text" id="key" name="key" placeholder="Input 26 characters key"><br />
+        <label for="text">Text:</label>
+        <textarea id="text" name="text" rows="4" cols="50"></textarea>
+        <div class="btn-container">
+          <input type="submit" value="Submit" id="submit" class="btn">
+          <input type="button" value="Clear" class="btn" id="clear"></button>
+        </div>
+        <textarea id="info" name="info" rows="4" cols="50" readonly></textarea>
+      </form>
+    </div>
+  </main>
+  <!-- javascript -->
+  <script src="decrypt.js"></script>
+</body>
+</html>
