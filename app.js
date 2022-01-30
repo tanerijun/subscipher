@@ -1,6 +1,7 @@
 const info = document.getElementById('info');
 const form = document.getElementById('form');
 const clear = document.getElementById('clear');
+const mode = document.getElementById('mode');
 
 // Simple How-to for user through #info textarea
 showHowTo();
@@ -25,9 +26,15 @@ form.addEventListener('submit', (event) => {
   // convert key to lower case
   key = key.toLowerCase();
 
-  // encrypt text
-  const encrypted_text = subsCipher(plain_text, key);
-  info.value = encrypted_text;
+  if (mode.textContent === 'Encrypt') {
+    // encrypt text
+    const encrypted_text = subsCipher(plain_text, key);
+    info.value = encrypted_text;
+  } else if (mode.textContent === 'Decrypt') {
+    // decrypt text
+  } else {
+    info.value = "Error! Please refresh the page";
+  }
 })
 
 // clear all input fields
@@ -77,6 +84,5 @@ const subsCipher = (s, key) => {
 }
 
 function showHowTo() {
-  console.log("activated");
   info.value = "Typed in a 26-character key, then insert the text you want to encrypt followed by the submit button!"
 }
