@@ -11,7 +11,7 @@ form.addEventListener('submit', (event) => {
   
   // get key and plain text
   let key = document.getElementById('key').value;
-  const plain_text = document.getElementById('text').value;
+  const text = document.getElementById('text').value;
 
   // validate key
   if (!isValidKey(key)) {
@@ -28,10 +28,12 @@ form.addEventListener('submit', (event) => {
 
   if (mode.textContent === 'Encrypt') {
     // encrypt text
-    const encryptedText = subsCipher(plain_text, key);
+    const encryptedText = subsCipher(text, key);
     info.value = encryptedText;
   } else if (mode.textContent === 'Decrypt') {
     // decrypt text
+    const decryptedText = subsDecode(text, key);
+    info.value = decryptedText;
   } else {
     info.value = "Error! Please refresh the page";
   }
@@ -80,6 +82,39 @@ const subsCipher = (s, key) => {
     newString += sub;
   }
 
+  return newString;
+}
+
+const subsDecode = (s, key) => {
+  const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  let newString = "";
+
+  // loop through the whole string
+  for (let i = 0; i < s.length; i++) {
+    // put to newString immediately if not alphabetic
+    if (!/[a-zA-Z]/.test(s[i])) {
+      newString += s[i];
+      continue;
+    }
+
+    // preserve case
+    const isUpperCase = /[A-Z]/.test(s[i]);
+
+    // get index (in alphabet) of the encrypted letter from the key
+    const subIndex = key.indexOf(s[i].toLowerCase())
+
+    // replace with letter of the same index in alphabet
+    let sub = alphabet[subIndex];
+
+    // convert the letter back to it's original case
+    if (isUpperCase) {
+      sub = sub.toUpperCase();
+    }
+
+    // put the letter into newString
+    newString += sub;
+  }
+  
   return newString;
 }
 
